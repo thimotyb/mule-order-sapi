@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="getAllOrdini" doc:id="4f290a67-81ef-4fd8-8b73-a215255377af" >
+		<ee:transform doc:name="Transform Message" doc:id="ce3dea05-8380-452c-8528-326fd1d81380" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[
+ {
+  "codOrdine": "ORD-123456",
+  "codCliente": "CLI-445566",
+  "nomeCliente": "Giovanni Verga Snc",
+  "dataOrdine": "2021-01-20T13:46:36.781Z",
+  "prodotti": [
+    {
+      "codProdotto": "PRD-123456",
+      "nomeProdotto": "TAPPETINO ANTISCIVOLO PER DOCCIA",
+      "qta": 1,
+      "prezzo": 19.99
+    },
+    {
+      "codProdotto": "PRD-756454",
+      "nomeProdotto": "SAPONETTA ESFOLIANTE CON SPUNTONI METALLICI",
+      "qta": 3,
+      "prezzo": 22.55
+    }
+  ],
+  "ID": 1
+},
+{
+  "codOrdine": "ORD-1564634556",
+  "codCliente": "CLI-72534",
+  "nomeCliente": "Pippolotto Enterprises SPA",
+  "dataOrdine": "2021-01-20T13:46:36.781Z",
+  "prodotti": [
+    {
+      "codProdotto": "PRD-434343",
+      "nomeProdotto": "SHAMPOO ATTIVO ANTI-RICRESCITA",
+      "qta": 4,
+      "prezzo": 55.12
+    },
+    {
+      "codProdotto": "PRD-7587526354",
+      "nomeProdotto": "DENTRIFICIO AL FLUORO EFFETTO SCURENTE",
+      "qta": 1,
+      "prezzo": 11.02
+    }
+  ],
+  "ID": 2
+}
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
